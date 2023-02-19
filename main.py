@@ -11,7 +11,7 @@ def ptn():
 
     # infinite loop
     pygame.init()
-    pygame.display.set_caption('Hangar d\'entraînement au tir')
+    pygame.display.set_caption('Shooter game')
 
 
     Icon = pygame.image.load('bgrd.png')
@@ -22,7 +22,6 @@ def ptn():
     # Creating a canvas of 600*400
     infoObject = pygame.display.Info()
     screen = pygame.display.set_mode((infoObject.current_w , infoObject.current_h))
-    clock = pygame.time.Clock()
     image = pygame.image.load("bh.png").convert_alpha()
     image = pygame.transform.scale(image, (100, 200))
     surf = pygame.Surface((60, 60), pygame.SRCALPHA)
@@ -42,8 +41,6 @@ def ptn():
     imagegun = pygame.image.load("gun.png").convert_alpha()
     imagegun = pygame.transform.scale(imagegun, (474, 355))
     background = pygame.image.load('bgrd.png')
-
-    TpsZero = pygame.time.get_ticks()
     cotinu = True 
     ptnsamere = False
     while cotinu :
@@ -64,8 +61,7 @@ def ptn():
               mg_pos = infoObject.current_h-250
               rectplace = screen.blit(image, (img_pos,mg_pos ))
               
-        #Places "Text in Pygame!" with an x,y coord of 250, 250 and 60 font size
-
+       
             
         
         for event in pygame.event.get():
@@ -80,6 +76,4 @@ def ptn():
 
             
         pygame.display.flip()
-        clock.tick(144)
-        ps = (pygame.time.get_ticks() - TpsZero)/1000
 ptn()
